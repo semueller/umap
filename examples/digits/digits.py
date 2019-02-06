@@ -8,7 +8,7 @@ from sklearn.datasets import load_digits
 digits = load_digits()
 embedding = umap.UMAP().fit_transform(digits.data)
 
-output_file("digits.html")
+output_file("digits_target.html")
 
 targets = [str(d) for d in digits.target_names]
 

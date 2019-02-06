@@ -6,13 +6,15 @@ import umap
 from sklearn.datasets import load_iris
 
 iris = load_iris()
-embedding = umap.UMAP(n_neighbors=50,
+embedding = umap.UMAP(
+                      n_neighbors=50, # critical!
                       learning_rate=0.5,
                       init="random",
-                      min_dist=0.001)\
-                .fit_transform(iris.data)
+                      min_dist=0.001
+                    )\
+                .fit_transform(iris.data, iris.target)
 
-output_file("iris.html")
+output_file("iris_target.html")
 
 
 targets = [str(d) for d in iris.target_names]
